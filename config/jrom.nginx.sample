@@ -1,0 +1,30 @@
+server
+{
+  listen       80;
+  server_name  blog.com;
+  root /var/www/blogengine;
+  passenger_enabled on;
+
+  if (-f $request_filename)
+  {
+    break;
+  }
+
+  if (-f $document_root/cache$request_filename)
+  {
+    rewrite (.*) /cache$1 break;
+    break;
+  }
+
+  if (-f $document_root/cache$request_uri.html)
+  {
+    rewrite (.*) /cache$1.html break;
+    break;
+  }
+
+  if (-f $document_root/cache$request_uri/index.html)
+  {
+    rewrite (.*) /cache$1/index.html break;
+    break;
+  }
+}
