@@ -17,4 +17,8 @@ Bundler.require(:default, ENV['RACK_ENV']) if defined?(Bundler)
 
 require 'app'
 
+log = File.new("log/#{Sinatra::Application.environment}.log", "a+")
+STDOUT.reopen(log)
+STDERR.reopen(log)
+
 run Jrom::Application
