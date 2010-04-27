@@ -41,3 +41,33 @@ namespace :symlinks do
 end
 
 after "deploy:update_code", "symlinks:make"
+
+after "deploy:setup", "create_page_cache"
+task :create_page_cache, :roles => :app do
+  run "umask 02 && mkdir -p #{shared_path}/cache"
+end
+
+after "deploy:update_code","symlink_shared_dirs"
+task :symlink_shared_dirs, :roles => :app, :except => {:no_release => true, :no_symlink => true} do
+    run <<-CMD
+      cd #{release_path} &&
+      ln -nfs #{shared_path}/cache #{release_path}/public/cache
+    CMD
+end
+
+# default behavior is to flush page cache on deploy
+set :flush_cache, true
+
+# page cache management
+task :keep_page_cache do
+  set :flush_cache, false
+end
+
+after "deploy:cleanup", "flush_page_cache"
+task :flush_page_cache, :roles => :app do
+  if flush_cache
+    run <<-CMD
+      rm -rf #{shared_path}/cache/*
+    CMD
+  end
+end
