@@ -11,12 +11,11 @@ require "lib/models"
 
 module Jrom
   class Application < Sinatra::Base
-
     configure do
       register(Sinatra::Cache)
       set :root, File.dirname(__FILE__)
       set :cache_enabled, Jrom::Configuration.cache
-      set :cache_output_dir, Proc.new { File.join(root, "public", "cache") }
+      set :cache_output_dir, Proc.new { File.join(root, 'public', 'cache') }
 
       Compass.configuration do |config|
         config.project_path = File.dirname(__FILE__)
@@ -30,10 +29,6 @@ module Jrom
         variables.each do |var|
           instance_variable_set("@#{var}", Jrom::Configuration.send(var))
         end
-      end
-
-      def versioned_javascript(javascript)
-        "/javascripts/#{javascript}.js?" + File.mtime(File.join(Sinatra::Application.public, "javascripts", "#{javascript}.js")).to_i.to_s
       end
 
       def set_from_page(*variables)
