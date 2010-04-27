@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type' />
+    <title>Jordi Romero</title>
+    <link href='/css/master.css' media='screen' rel='stylesheet' type='text/css' />
+    <link href='/articles.xml' rel='alternate' type='application/atom+xml' />
+  </head>
+  <body>
+    <div id='container'>
+      <div id='wrapper'>
+        <div class='breadcrumb'>
+          <a href='/'>Home</a>
+        </div>
+        <div id='sidebar'>
+          <h2>Articles by category</h2>
+          <ul class='menu'>
+            <li>
+              <a href='/gittonic'>Git Tonic</a>
+            </li>
+          </ul>
+          <div class='feed'>
+            <a href='/articles.xml' rel='nofollow' title='Subscribe to our feed'>
+              Subscribe to
+              our feed
+            </a>
+          </div>
+        </div>
+        <div id='content'>
+          <h1>Page not found</h1>
+          <p>
+            Please try another page or, if you think something is wrong with our site,
+            do get in touch and let us know.
+          </p>
+        </div>
+        <div id='footer'>
+          <p>
+            Copyright &copy; 2010 Jordi Romero
+          </p>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

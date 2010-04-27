@@ -1,0 +1,7 @@
+%li
+  %div.article
+    %div.head
+      %span.date= format_date(article.date)
+      %h2.title
+        %a{:href => article.abspath}= (article.heading)
+    %p.intro= article.summary

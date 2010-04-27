@@ -1,0 +1,27 @@
+!!!
+%html{ :lang => "en", "xml:lang" => "en", :xmlns => 'http://www.w3.org/1999/xhtml' }
+  %head
+    %meta{ "http-equiv" => "content-type", "content" => "text/html; charset=utf-8" }
+    - if @description
+      %meta{ "name" => "description", "content" => @description }
+    - if @keywords
+      %meta{ "name" => "keywords", "content" => @keywords }
+    %title= @title
+    %link{ :href => "/css/jrom.css", :media => "screen", :rel => "stylesheet", :type => "text/css" }
+    %link{ :href => "/articles.xml", :rel => "alternate", :type => "application/atom+xml" }
+    = cache_timestamp
+  %body{ :class => @body_class }
+    %div#content
+      #header
+        %h1
+          %a{:href => '/', :title => 'Jordi Romero' } Jordi Romero
+        %a.about{ :href => '/about', :title => 'About Jordi Romero' } About
+      = yield
+
+      #footer
+        %p.copyright Copyright &copy; 2010 Jordi Romero
+        = haml :feed, :layout => false
+    %script{:src=> "javascripts/highlight.js", :type=>"text/javascript"}
+    :javascript
+      hljs.initHighlightingOnLoad();
+    = erb :analytics, :layout => false

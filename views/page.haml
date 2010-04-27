@@ -1,0 +1,32 @@
+%div.article.solo
+  %div.head
+    %span.date= (@page.date ? format_date(@page.date) : "")
+    %h2.title
+      %a{:href => @page.abspath}= @page.heading
+
+  %p.intro= @page.summary
+
+  - unless @page.categories.empty?
+    %div.info
+      %ul.tags
+        - @page.categories.each do |category|
+          %li
+            %a{:href => category.abspath, :title => "Articles in: #{category.heading}"}= category.heading
+
+  %div.body
+    ~ @page.body
+
+
+  - unless @page.articles.empty?
+    %h3.articles= "Articles"
+  - unless @page.pages.empty?
+    %h3.articles= "Pages on"
+
+  %ul#articles
+    - @page.pages.each do |page|
+      = haml :summary, :layout => false, :locals => { :article => page }
+  
+    - @page.articles.each do |article|
+      = haml :summary, :layout => false, :locals => { :article => article}
+
+  = haml :comments, :layout => false

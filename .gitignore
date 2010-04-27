@@ -1,0 +1,7 @@
+._*
+.bundle
+.DS_Store
+config/config.yml
+config/deploy.rb
+content
+public/cache

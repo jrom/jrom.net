@@ -1,0 +1,90 @@
+pre
+  code
+    display: block
+    background: #3F3F3F
+    color: #DCDCDC
+
+    &[class]:after
+      display: block
+      text-align: right
+      font-size: smaller
+      color: #CCC
+      background: white
+      border-top: solid 1px black
+      padding-top: 0.5em
+
+  .keyword, .tag
+    color: #E3CEAB
+
+  .django
+    .tag, .keyword
+      color: #E3CEAB
+
+  .css
+    .class, .id
+      color: #E3CEAB
+
+  .lisp .title
+    color: #E3CEAB
+
+  .django
+    .template_tag, .variable, .filter .argument
+      color: #DCDCDC
+
+  .number, .date
+    color: #8CD0D3
+
+  .dos
+    .envvar, .stream
+      color: #EFDCBC
+
+  .variable, .apache .sqbracket
+    color: #EFDCBC
+
+  .dos .flow, .diff .change
+    color: #EFEFAF
+
+  .python
+    .exception, .built_in
+      color: #EFEFAF
+
+  .literal
+    color: #EFEFAF
+
+  .diff .chunk, .ruby .subst
+    color: #8F8F8F
+
+  .dos .keyword, .python .decorator, .class .title, .function .title, .ini .title, .diff .header, .ruby .class .parent, .apache .tag
+    color: #efef8f
+
+  .dos .winutils
+    color: #DCA3A3
+
+  .ruby
+    .symbol, .string, .instancevar
+      color: #DCA3A3
+
+  .diff .deletion, .string, .tag .attribute .value, .preprocessor, .built_in, .sql .aggregate, .javadoc
+    color: #CC9393
+
+  .smalltalk
+    .class, .localvars, .array
+      color: #CC9393
+
+  .css .rules .value, .attr_selector, .pseudo, .apache .cbracket
+    color: #CC9393
+
+  .shebang, .diff .addition, .comment, .java .annotation, .template_comment, .pi, .doctype
+    color: #7F9F7F
+
+  .html
+    .css, .javascript
+      opacity: 0.5
+
+pre code
+  font: 0.8em Monaco, "Bitstream Vera Sans Mono", monospace
+  overflow: auto
+  padding: 10px
+  margin: 2em 0em
+  whitespace: pre
+
