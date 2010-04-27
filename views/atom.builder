@@ -5,7 +5,6 @@ xml.feed :xmlns => "http://www.w3.org/2005/Atom" do
   xml.id atom_id
   xml.link :href => "#{base_url}/articles.xml", :rel => "self"
   xml.link :href => base_url, :rel => "alternate"
-  xml.subtitle @subtitle, :type => "text"
   xml.author do
     xml.name @author["name"] if @author["name"]
     xml.uri @author["uri"] if @author["uri"]

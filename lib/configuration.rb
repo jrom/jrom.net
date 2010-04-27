@@ -20,10 +20,6 @@ module Jrom
       configuration["title"]
     end
     
-    def self.subtitle
-      configuration["subtitle"]
-    end
-    
     def self.description
       configuration["description"]
     end

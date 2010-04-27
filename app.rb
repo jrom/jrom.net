@@ -55,7 +55,7 @@ module Jrom
       def set_common_variables
         @menu_items = Page.menu_items
         @site_title = Jrom::Configuration.title
-        set_from_config(:title, :subtitle, :google_analytics_code)
+        set_from_config(:title, :google_analytics_code)
       end
 
       def url_for(page)
@@ -116,9 +116,9 @@ module Jrom
 
     get "/" do
       set_common_variables
-      set_from_config(:title, :subtitle, :description, :keywords)
+      set_from_config(:title, :description, :keywords)
       @heading = @title
-      @title = "#{@title} - #{@subtitle}"
+      @title = "#{@title}"
       @articles = Page.find_articles[0..7]
       @body_class = "index"
       haml(:index)
@@ -131,7 +131,7 @@ module Jrom
 
     get "/articles.xml" do
       content_type :xml, :charset => "utf-8"
-      set_from_config(:title, :subtitle, :author)
+      set_from_config(:title, :author)
       @articles = Page.find_articles.select { |a| a.date }[0..9]
       builder(:atom)
     end
