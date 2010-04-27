@@ -13,6 +13,7 @@ rescue LoadError
   end
 end
 
+Bundler.require(:default, ENV['RACK_ENV']) if defined?(Bundler)
 
 require 'app'
 
