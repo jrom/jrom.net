@@ -5,3 +5,4 @@ config/config.yml
 config/deploy.rb
 content
 public/cache
+.sass-cache
