@@ -1,6 +1,7 @@
 xml.instruct!
 xml.feed :xmlns => "http://www.w3.org/2005/Atom" do
   xml.title @title, :type => "text"
+  xml.updated (@articles.empty? ? Time.parse(Time.now).xmlschema : @articles[0].date(:xmlschema))
   xml.generator "jrom.net", :uri => "http://jrom.net"
   xml.id atom_id
   xml.link :href => "#{base_url}/articles.xml", :rel => "self"
@@ -19,6 +20,7 @@ xml.feed :xmlns => "http://www.w3.org/2005/Atom" do
       xml.id atom_id(article)
       xml.content absolute_urls(article.body), :type => "html"
       xml.published article.date(:xmlschema)
+      xml.updated article.date(:xmlschema)
       article.categories.each do |category|
         xml.category :term => category.permalink
       end

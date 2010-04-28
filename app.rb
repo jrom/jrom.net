@@ -76,7 +76,7 @@ module Jrom
         if page
           page.atom_id || atom_id_for_page(page)
         else
-          "tag:#{request.host},2009:/"
+          "tag:#{request.host},2010:/"
         end
       end
 
@@ -127,7 +127,7 @@ module Jrom
     get "/articles.xml" do
       content_type :xml, :charset => "utf-8"
       set_from_config(:title, :author)
-      @articles = Page.find_articles.select { |a| a.date }[0..9]
+      @articles = Page.find_articles.select { |a| a.date }[0..39]
       builder(:atom)
     end
 
