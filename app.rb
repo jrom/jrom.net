@@ -66,6 +66,7 @@ module Jrom
 
       def absolute_urls(text)
         text.gsub!(/(<a href=['"])\//, '\1' + base_url + '/')
+        text.gsub!(/(<img src=['"])\//, '\1' + base_url + '/')
         text
       end
 
