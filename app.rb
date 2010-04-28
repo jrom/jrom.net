@@ -22,6 +22,8 @@ module Jrom
         config.sass_dir = 'views/css'
       end
       set :sass, Compass.sass_engine_options
+
+      set :logging, true
     end
 
     helpers do
