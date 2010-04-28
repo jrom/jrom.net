@@ -13,8 +13,9 @@
           Last update:
           = @page.updated.strftime("%d %B %Y %H:%M")
       - elsif @page.date
-        Published:
-        = @page.date.strftime("%d %B %Y %H:%M")
+        %span
+          Published:
+          = @page.date.strftime("%d %B %Y %H:%M")
       %ul.tags
         - @page.categories.each do |category|
           %li
