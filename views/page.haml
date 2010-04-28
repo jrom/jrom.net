@@ -6,8 +6,15 @@
 
   %p.intro= @page.summary
 
-  - unless @page.categories.empty?
+  - unless @page.categories.empty? && !@page.date
     %div.info
+      - if @page.updated
+        %span
+          Last update:
+          = @page.updated.strftime("%d %B %Y %H:%M")
+      - elsif @page.date
+        Published:
+        = @page.date.strftime("%d %B %Y %H:%M")
       %ul.tags
         - @page.categories.each do |category|
           %li

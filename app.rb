@@ -71,7 +71,11 @@ module Jrom
       end
 
       def atom_id_for_page(page)
-        published = page.date.strftime('%Y-%m-%d')
+        published = if page.updated
+          page.updated.strftime('%Y-%m-%d-%H-%M')
+        else
+          page.date.strftime('%Y-%m-%d-%H-%M')
+        end
         "tag:#{request.host},#{published}:#{page.abspath}"
       end
 

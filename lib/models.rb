@@ -161,6 +161,16 @@ class Page < FileModel
       end
     end
   end
+
+  def updated(format = nil)
+    @updated ||= if metadata("updated")
+      if format == :xmlschema
+        Time.parse(metadata("updated")).xmlschema
+      else
+        DateTime.parse(metadata("updated"))
+      end
+    end
+  end
   
   def atom_id
     metadata("atom id")
