@@ -112,8 +112,10 @@ module Jrom
     end
 
     get "/css/:sheet.css" do
-      content_type "text/css", :charset => "utf-8"
-      sass("css/#{params[:sheet]}".to_sym)
+      unless File.exist?(File.join("public", "css", "#{params[:sheet]}.css"))
+        content_type "text/css", :charset => "utf-8"
+        sass("css/#{params[:sheet]}".to_sym)
+      end
     end
 
     get "/" do
